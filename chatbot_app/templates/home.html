@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="text-align: center;">
+            <h1>Welcome to the Chatbot Application</h1>
+            <a href="{% url 'chat' 1 %}" class="btn btn-primary">Start Chat</a> <!-- Assuming conversation ID 1 for demonstration purposes -->
+        </div>
+    </div>
+{% endblock %}

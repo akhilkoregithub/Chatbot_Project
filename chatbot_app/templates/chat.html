@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat with {{ conversation }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-md-6">
+                <h1>Chat with {{ conversation }}</h1>
+                <div id="message-container">
+                    {% for message in messages %}
+                        <p>{{ message.sender }}: {{ message.content }}</p>
+                    {% endfor %}
+                </div>
+                <form id="message-form" method="post" class="mt-3 d-flex flex-column">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.content }}
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm custom-btn">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .custom-btn {
+            width: 80px; /* Adjust the width to your preference */
+        }
+
+        /* Center the entire column vertically and horizontally */
+        .vh-100 {
+            height: 100vh;
+        }
+    </style>
+
+    <script>
+        // Your WebSocket and message handling JavaScript code goes here
+    </script>
+{% endblock %}
